@@ -137,6 +137,14 @@ body {
   color: #3a7bfd;
 }
 
+.btn--theme-switch {
+  padding: 2rem;
+  background-image: url("../images/icon-sun.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .input-container {
   justify-content: flex-start;
   border-radius: 0.5rem;
@@ -150,7 +158,8 @@ form {
   background-color: transparent;
   border: none;
   color: #777a92;
-  padding-left: 1.5rem;
+  width: 100%;
+  padding: 0 1.5rem;
 }
 .input-field:focus {
   color: #e4e5f1;
@@ -197,6 +206,40 @@ form {
   border-radius: 0.5rem;
 }
 
+.light {
+  background: #fafafa url("../images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+}
+
+.light .main {
+  box-shadow: 0 2rem 3rem rgba(29, 29, 29, 0.2);
+}
+
+.light .input-container,
+.light .task,
+.light .stats,
+.light .filters {
+  background-color: white;
+}
+
+.light .task {
+  border-color: #e4e5f1;
+}
+
+.light .input-field {
+  color: #777a92;
+}
+
+.light .task__paragraph {
+  color: #4d5066;
+}
+
+.light .btn--theme-switch {
+  background-image: url("../images/icon-moon.svg");
+}
+
 @media screen and (max-width: 370px) {
   html {
     font-size: 50%;
@@ -209,6 +252,10 @@ form {
 @media screen and (min-width: 540px) {
   body {
     background-image: url("../images/bg-desktop-dark.jpg");
+    background-size: auto;
+  }
+
+  .light {
     background-size: auto;
   }
 
