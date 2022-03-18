@@ -1,11 +1,52 @@
 .btn {
   background: transparent;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.btn-check-mark {
+.btn--check-mark {
   margin-left: 2rem;
-  padding: 1rem;
   border: 1px solid $Dark-Grayish-Blue;
+  padding: 1rem;
   border-radius: 2rem;
+}
+
+.completed .btn--check-mark {
+  background: linear-gradient(110deg, $Light-Blue, $Light-Pink);
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    padding: 2rem;
+    background-image: url("../images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.btn--delete {
+  background-image: url("../images/icon-cross.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0.8rem;
+  padding-right: 3rem;
+}
+
+.btn--clear {
+  color: $Dark-Grayish-Blue;
+}
+
+.btn--filter {
+  color: $Dark-Grayish-Blue;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.btn--active {
+  color: $Bright-Blue;
 }

@@ -34,7 +34,7 @@
       <section class="section input-section">
         <form action="">
           <div class="input-container">
-            <button class="btn btn-check-mark"></button>
+            <button class="btn btn--check-mark"></button>
             <input
               class="input-field"
               type="input"
@@ -43,22 +43,71 @@
           </div>
         </form>
       </section>
+      <!-- USER GENERATED CONTENT  -->
       <section class="section todo-section">
         <ul class="tasks">
-          <li class="task"></li>
+          <!-- TEMPLATE CONTENT -->
+          <!-- <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Some Task</p>
+            <button class="btn btn--delete"></button>
+          </li> -->
+          <li class="task completed">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Complete online JavaScript course</p>
+            <button class="btn btn--delete"></button>
+          </li>
+          <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Jog around the park 3x</p>
+            <button class="btn btn--delete"></button>
+          </li>
+
+          <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">10 minutes meditation</p>
+            <button class="btn btn--delete"></button>
+          </li>
+          <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Read for 1 hour</p>
+            <button class="btn btn--delete"></button>
+          </li>
+          <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Pick up groceries</p>
+            <button class="btn btn--delete"></button>
+          </li>
+          <li class="task">
+            <button class="btn btn--check-mark"></button>
+            <p class="task__paragraph">Complete Todo App on Frontend Mentor</p>
+            <button class="btn btn--delete"></button>
+          </li>
         </ul>
+      </section>
+      <section class="section manage-section">
+        <div class="stats">
+          <p class="stat__item-count">5 items left</p>
+          <button class="btn btn--clear">Clear Completed</button>
+        </div>
+        <div class="filters">
+          <button class="btn btn--filter btn--active">All</button>
+          <button class="btn btn--filter">Active</button>
+          <button class="btn btn--filter">Completed</button>
+        </div>
       </section>
     </main>
 
-    <!-- Add dynamic number -->
-    items left All Active Completed Clear Completed Drag and drop to reorder
-    list
-
-    <div class="attribution">
+    <footer class="attribution">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a
+        target="_blank"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+      >. Coded by
+      <a target="_blank" href="https://github.com/Blagoja95">Boris Blagojevic</a
+      >.
+    </footer>
   </body>
 </html>

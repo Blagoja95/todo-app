@@ -1,0 +1,29 @@
+.todo-section {
+  @extend %section-margin;
+}
+
+.tasks {
+  border-radius: 0.5rem 0.5rem 0 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.task {
+  @extend %container;
+  @extend %flexbox;
+  justify-content: space-between;
+  height: 6rem;
+  border-bottom: 1.5px solid $Very-Dark-Grayish-Blue;
+}
+
+.task__paragraph {
+  color: $Light-Grayish-Blue;
+  text-align: left;
+  padding-left: 2rem;
+  width: 100%;
+}
+
+.completed .task__paragraph {
+  text-decoration: line-through;
+  color: $Very-Dark-Grayish-Blue;
+}

@@ -2,6 +2,7 @@
   @extend %container;
   @extend %flexbox;
   justify-content: flex-start;
+  border-radius: 0.5rem;
 }
 
 .input-field {

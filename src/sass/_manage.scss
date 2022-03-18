@@ -1,0 +1,15 @@
+.stats {
+  @extend %container;
+  @extend %flexbox;
+  justify-content: space-around;
+  color: $Dark-Grayish-Blue;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.filters {
+  @extend %section-margin;
+  @extend %container;
+  @extend %flexbox;
+  gap: 2rem;
+  border-radius: 0.5rem;
+}
