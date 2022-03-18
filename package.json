@@ -1,0 +1,25 @@
+{
+  "name": "todo-app-main",
+  "version": "1.0.0",
+  "description": "todo task manager app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blagoja95/todo-app.git"
+  },
+  "author": "Boris Blagojevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blagoja95/todo-app/issues"
+  },
+  "homepage": "https://github.com/Blagoja95/todo-app#readme",
+  "devDependencies": {
+    "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "parcel": "^2.3.2"
+  }
+}

@@ -1,0 +1,12 @@
+.title-section {
+  @extend %flexbox;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.main-title {
+  text-transform: uppercase;
+  color: $Very-Light-Gray;
+  font-size: 3rem;
+  letter-spacing: 1rem;
+}

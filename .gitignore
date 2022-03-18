@@ -18,3 +18,5 @@
 # 
 *.md
 /design
+/dist
+/node_modules

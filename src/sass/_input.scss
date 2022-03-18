@@ -1,0 +1,18 @@
+.input-container {
+  @extend %container;
+  @extend %flexbox;
+  justify-content: flex-start;
+}
+
+.input-field {
+  background-color: transparent;
+  border: none;
+  color: $Dark-Grayish-Blue;
+  padding-left: 1.5rem;
+
+  &:focus {
+    color: $Light-Grayish-Blue;
+    border: none;
+    outline: none;
+  }
+}
