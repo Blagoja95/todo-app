@@ -21,6 +21,10 @@
   text-align: left;
   padding-left: 2rem;
   width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .completed .task__paragraph {

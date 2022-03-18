@@ -12,6 +12,12 @@
   border: 1px solid $Dark-Grayish-Blue;
   padding: 1rem;
   border-radius: 2rem;
+
+  // &:hover {
+  //   border: 1px solid;
+  //   border-image-slice: 1;
+  //   border-image-source: linear-gradient(110deg, $Light-Blue, $Light-Pink);
+  // }
 }
 
 .completed .btn--check-mark {
@@ -39,12 +45,19 @@
 
 .btn--clear {
   color: $Dark-Grayish-Blue;
+  &:hover {
+    color: $Light-Grayish-Blue;
+  }
 }
 
 .btn--filter {
   color: $Dark-Grayish-Blue;
   font-weight: 700;
   font-size: 1.5rem;
+
+  &:hover {
+    color: $Very-Light-Gray;
+  }
 }
 
 .btn--active {
