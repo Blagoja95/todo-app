@@ -10,7 +10,7 @@
 .btn--check-mark {
   margin-left: 2rem;
   border: 1px solid $Dark-Grayish-Blue;
-  padding: 1rem;
+  padding: 1.1rem;
   border-radius: 2rem;
 
   // &:hover {
@@ -27,7 +27,7 @@
   &::after {
     position: absolute;
     content: "";
-    padding: 2rem;
+    padding: 1.1rem;
     background-image: url("../images/icon-check.svg");
     background-repeat: no-repeat;
     background-position: center;

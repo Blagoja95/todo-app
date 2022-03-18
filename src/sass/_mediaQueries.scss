@@ -1,0 +1,42 @@
+@media screen and (max-width: 370px) {
+  html {
+    font-size: 50%;
+  }
+
+  .btn--clear {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  body {
+    @extend %background;
+    background-image: url("../images/bg-desktop-dark.jpg");
+    background-size: auto;
+  }
+
+  .main {
+    max-width: 54rem;
+    margin-top: 10rem;
+  }
+
+  .filters-desktop {
+    display: flex;
+    width: auto;
+    margin: 0;
+  }
+
+  .filters-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    background-size: 100% 40vh;
+  }
+
+  .main {
+    margin-top: 15rem;
+  }
+}

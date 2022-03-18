@@ -1,6 +1,7 @@
 .title-section {
   @extend %flexbox;
   justify-content: space-between;
+  flex-direction: row;
   padding: 2rem 0;
 }
 

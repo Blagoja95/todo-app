@@ -27,20 +27,23 @@ body {
   font-size: 1.8rem;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
-  height: 100vh;
+}
+
+body {
   background: #161722 url("../images/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
   background-position: center top;
+  background-size: contain;
 }
 
-.filters, .stats, .task, .input-container, .title-section {
+.filters, .stats, .task, .input-container, .title-section, .section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .filters, .stats, .task, .input-container {
-  max-width: 54rem;
+  width: 100%;
   height: 5rem;
   background-color: #25273c;
   font-size: 1.4rem;
@@ -57,10 +60,16 @@ body {
 
 .section {
   width: 100%;
+  flex-direction: column;
+}
+
+.filters-desktop {
+  display: none;
 }
 
 .title-section {
   justify-content: space-between;
+  flex-direction: row;
   padding: 2rem 0;
 }
 
@@ -82,7 +91,7 @@ body {
 .btn--check-mark {
   margin-left: 2rem;
   border: 1px solid #777a92;
-  padding: 1rem;
+  padding: 1.1rem;
   border-radius: 2rem;
 }
 
@@ -93,7 +102,7 @@ body {
 .completed .btn--check-mark::after {
   position: absolute;
   content: "";
-  padding: 2rem;
+  padding: 1.1rem;
   background-image: url("../images/icon-check.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -133,6 +142,10 @@ body {
   border-radius: 0.5rem;
 }
 
+form {
+  width: 100%;
+}
+
 .input-field {
   background-color: transparent;
   border: none;
@@ -149,6 +162,7 @@ body {
   border-radius: 0.5rem 0.5rem 0 0;
   list-style: none;
   overflow: hidden;
+  width: 100%;
 }
 
 .task {
@@ -181,6 +195,46 @@ body {
 .filters {
   gap: 2rem;
   border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 370px) {
+  html {
+    font-size: 50%;
+  }
+
+  .btn--clear {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 540px) {
+  body {
+    background-image: url("../images/bg-desktop-dark.jpg");
+    background-size: auto;
+  }
+
+  .main {
+    max-width: 54rem;
+    margin-top: 10rem;
+  }
+
+  .filters-desktop {
+    display: flex;
+    width: auto;
+    margin: 0;
+  }
+
+  .filters-mobile {
+    display: none;
+  }
+}
+@media screen and (min-width: 1400px) {
+  body {
+    background-size: 100% 40vh;
+  }
+
+  .main {
+    margin-top: 15rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
