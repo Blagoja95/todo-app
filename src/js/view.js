@@ -1,31 +1,29 @@
-class Todo {
-  themeState = false;
-  themeBTN = document.querySelector(".btn--theme-switch");
-  body = document.querySelector("body");
-
-  changeTheme(handler) {
-    if (!this.themeState) {
-      this.body.classList.add("light");
-      handler((this.themeState = true));
-    } else {
-      this.body.classList.remove("light");
-      handler((this.themeState = false));
-    }
+export default class View {
+  constructor() {
+    this.body = document.querySelector("body");
+    this.form = document.querySelector("form");
+    this.input = document.querySelector(".input-container");
+    this.themeBtn = document.querySelector(".btn--theme-switch");
   }
 
-  addHandlerClickThemeBtn(handler) {
-    this.themeBTN.addEventListener(
-      "click",
-      this.changeTheme.bind(this, handler)
-    );
+  get _taskInner() {
+    return this.input.value;
   }
 
-  addhandlerLoadTheme(handler) {
-    this.themeBTN.addEventListener(
-      "click",
-      this.changeTheme.bind(this, handler)
-    );
+  _resetInner() {
+    this.input.value = "";
   }
+
+  changeTheme(state) {
+    if (state) this.body.classList.add("light");
+    else this.body.classList.remove("light");
+  }
+
+  bindThemeChange(handler) {
+    this.themeBtn.addEventListener("click", () => {
+      handler();
+    });
+  }
+
+  dispayTask() {}
 }
-
-export default new Todo();

@@ -1,9 +1,5 @@
 .attribution {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
   padding: 2rem 0;
-  width: 80%;
   font-size: 1.1rem;
   text-align: center;
   color: #e4e5f1;
@@ -36,7 +32,7 @@ body {
   background-size: contain;
 }
 
-.filters, .stats, .task, .input-container, .title-section, .section {
+.filters, .stats, .task, .input-container, .title-section, .section, .attribution {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,15 +1,29 @@
-import view from "./view.js";
-import * as model from "./model.js";
+import View from "./view.js";
+import Model from "./model.js";
 
-const clickThemeBtn = function (data) {
-  model.saveThemeState(data);
-};
+class Controller {
+  constructor(model, view) {
+    this.model = model;
+    this.view = view;
 
-// model.checkThemeStatus();
+    // init
+    this.controleTheme(this.model.theme);
 
-const init = function () {
-  view.addHandlerClickThemeBtn(clickThemeBtn);
-  //   view.addhandlerLoadTheme(loadTheme);
-};
+    // handlers
+    view.bindThemeChange(this.handleThemeChange.bind(this));
 
-init();
+    // callbacks
+    model.bindThemeChangeModel(this.controleTheme.bind(this));
+  }
+
+  controleTheme(state) {
+    this.view.changeTheme(state);
+  }
+
+  handleThemeChange() {
+    this.model.themeChange();
+    console.log("Btn is clicked");
+  }
+}
+
+const app = new Controller(new Model(), new View());
