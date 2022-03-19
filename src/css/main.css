@@ -236,6 +236,10 @@ form {
   background-image: url("../images/icon-moon.svg");
 }
 
+.light .attribution {
+  color: #4d5066;
+}
+
 @media screen and (max-width: 370px) {
   html {
     font-size: 50%;
