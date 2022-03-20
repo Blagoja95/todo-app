@@ -9,6 +9,7 @@ class Controller {
     // init
     this.controleTheme(this.model.theme);
     this.controlTask(this.model.tasks);
+    // localStorage.clear();
 
     // handlers
     view.bindThemeChange(this.handleThemeChange.bind(this));
