@@ -1,10 +1,7 @@
 export default class Model {
   constructor() {
-    this.tasks = [
-      { id: 1, content: "Some task 1", complete: false },
-      { id: 2, content: "Some task 2", complete: false },
-    ];
-
+    // this.tasks = JSON.parse(localStorage.getItem("task")) || [];
+    this.tasks = [];
     this.theme = JSON.parse(localStorage.getItem("theme")) || false;
   }
 
@@ -22,6 +19,9 @@ export default class Model {
     };
 
     this.tasks.push(task);
+    this.controleTask(this.tasks);
+
+    // this.addToLocalStorage(this.tasks);
   }
 
   editTask(id, updatedContent) {
@@ -44,8 +44,17 @@ export default class Model {
     );
   }
 
+  addToLocalStorage(tasks) {
+    this.controleTask(this.tasks);
+    localStorage.setItem("task", JSON.stringify(this.tasks));
+  }
+
   // callbacks
   bindThemeChangeModel(callback) {
     this.controleTheme = callback;
+  }
+
+  bindAddTaskModel(callback) {
+    this.controleTask = callback;
   }
 }

@@ -8,22 +8,34 @@ class Controller {
 
     // init
     this.controleTheme(this.model.theme);
+    this.controlTask(this.model.tasks);
 
     // handlers
     view.bindThemeChange(this.handleThemeChange.bind(this));
+    view.bindAddTask(this.handleAddTask.bind(this));
 
     // callbacks
     model.bindThemeChangeModel(this.controleTheme.bind(this));
+    model.bindAddTaskModel(this.controlTask.bind(this));
   }
 
   controleTheme(state) {
     this.view.changeTheme(state);
   }
 
+  controlTask(task) {
+    this.view.renderTask(task);
+  }
+
   handleThemeChange() {
     this.model.themeChange();
     console.log("Btn is clicked");
   }
+
+  handleAddTask(input) {
+    console.log(input);
+    this.model.addTask(input);
+  }
 }
 
-const app = new Controller(new Model(), new View());
+const controller = new Controller(new Model(), new View());
