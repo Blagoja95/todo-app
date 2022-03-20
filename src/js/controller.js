@@ -15,6 +15,7 @@ class Controller {
     view.bindThemeChange(this.handleThemeChange.bind(this));
     view.bindAddTask(this.handleAddTask.bind(this));
     view.bindToggleComplete(this.handleToggle.bind(this));
+    view.bindDeleteTask(this.handleDeleteTask.bind(this));
 
     // callbacks
     model.bindThemeChangeModel(this.controleTheme.bind(this));
@@ -36,12 +37,16 @@ class Controller {
   }
 
   handleAddTask(input) {
-    console.log(input);
     this.model.addTask(input);
   }
 
   handleToggle(input) {
     this.model.toggleTask(+input);
+  }
+
+  handleDeleteTask(input) {
+    console.log(input);
+    this.model.deleteTask(+input);
   }
 }
 

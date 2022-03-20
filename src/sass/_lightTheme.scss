@@ -1,12 +1,12 @@
 .light {
-  background: $Very-Light-Gray url("../images/bg-desktop-light.jpg");
+  background: $Very-Light-Gray url("../images/bg-mobile-light.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain auto;
+  background-size: contain;
 }
 
 .light .main {
-  box-shadow: 0 2rem 3rem rgba(29, 29, 29, 0.2);
+  box-shadow: 0 2rem 1rem rgba(29, 29, 29, 0.1);
 }
 
 .light .input-container,

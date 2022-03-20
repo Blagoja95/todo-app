@@ -9,6 +9,13 @@
 }
 
 @media screen and (min-width: 540px) {
+  .light {
+    background: $Very-Light-Gray url("../images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+  }
+
   body {
     @extend %background;
     background-image: url("../images/bg-desktop-dark.jpg");
@@ -36,11 +43,20 @@
 }
 
 @media screen and (min-width: 1400px) {
-  body {
+  body,
+  .light {
     background-size: 100% 40vh;
   }
 
   .main {
     margin-top: 15rem;
+  }
+
+  .btn--delete {
+    display: none;
+
+    &:hover {
+      display: block;
+    }
   }
 }

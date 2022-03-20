@@ -210,14 +210,14 @@ form {
 }
 
 .light {
-  background: #fafafa url("../images/bg-desktop-light.jpg");
+  background: #fafafa url("../images/bg-mobile-light.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain auto;
+  background-size: contain;
 }
 
 .light .main {
-  box-shadow: 0 2rem 3rem rgba(29, 29, 29, 0.2);
+  box-shadow: 0 2rem 1rem rgba(29, 29, 29, 0.1);
 }
 
 .light .input-container,
@@ -257,6 +257,13 @@ form {
   }
 }
 @media screen and (min-width: 540px) {
+  .light {
+    background: #fafafa url("../images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+  }
+
   body {
     background-image: url("../images/bg-desktop-dark.jpg");
     background-size: auto;
@@ -282,12 +289,20 @@ form {
   }
 }
 @media screen and (min-width: 1400px) {
-  body {
+  body,
+.light {
     background-size: 100% 40vh;
   }
 
   .main {
     margin-top: 15rem;
+  }
+
+  .btn--delete {
+    display: none;
+  }
+  .btn--delete:hover {
+    display: block;
   }
 }
 

@@ -33,6 +33,7 @@ export default class Model {
 
   deleteTask(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.addToLocalStorage(this.tasks);
   }
 
   toggleTask(id) {

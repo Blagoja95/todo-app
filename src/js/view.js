@@ -5,9 +5,7 @@ export default class View {
     this.input = document.querySelector(".input-field");
     this.taskUl = document.querySelector(".tasks");
     this.itemCount = document.querySelector(".stat__item-count");
-
     this.themeBtn = document.querySelector(".btn--theme-switch");
-    this.checkmarkBtn = document.querySelectorAll(".btn--check-mark");
   }
 
   get _taskInner() {
@@ -71,13 +69,12 @@ export default class View {
     });
   }
 
-  // bindToggleComplete(handler) {
-  //   this.checkmarkBtn.forEach((btn) => {
-  //     btn.addEventListener("click", (event) => {
-  //       handler("data");
-  //     });
-  //   });
-  // }
+  bindDeleteTask(handler) {
+    this.taskUl.addEventListener("click", (event) => {
+      if (event.target.classList[1] === "btn--delete")
+        handler(event.target.parentElement.id);
+    });
+  }
 
   bindToggleComplete(handler) {
     this.taskUl.addEventListener("click", (event) => {
