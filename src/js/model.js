@@ -27,6 +27,8 @@ export default class Model {
         ? { id: task.id, content: updatedContent, complete: task.complete }
         : task
     );
+
+    this.controleTask(this.tasks);
   }
 
   deleteTask(id) {
@@ -39,6 +41,7 @@ export default class Model {
         ? { id: task.id, content: task.content, complete: !task.complete }
         : task
     );
+    this.addToLocalStorage(this.tasks);
   }
 
   addToLocalStorage(tasks) {

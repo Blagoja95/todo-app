@@ -84,7 +84,8 @@ body {
   cursor: pointer;
 }
 
-.btn--check-mark {
+.btn--check-mark,
+.btn--span {
   margin-left: 2rem;
   border: 1px solid #777a92;
   padding: 1.1rem;
@@ -191,6 +192,12 @@ form {
   color: #4d5066;
 }
 
+.nomsg-paragraph {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
 .stats {
   justify-content: space-around;
   color: #777a92;
@@ -206,7 +213,7 @@ form {
   background: #fafafa url("../images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;
+  background-size: contain auto;
 }
 
 .light .main {

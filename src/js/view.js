@@ -3,8 +3,11 @@ export default class View {
     this.body = document.querySelector("body");
     this.form = document.querySelector("form");
     this.input = document.querySelector(".input-field");
-    this.themeBtn = document.querySelector(".btn--theme-switch");
     this.taskUl = document.querySelector(".tasks");
+    this.itemCount = document.querySelector(".stat__item-count");
+
+    this.themeBtn = document.querySelector(".btn--theme-switch");
+    this.checkmarkBtn = document.querySelectorAll(".btn--check-mark");
   }
 
   get _taskInner() {
@@ -20,12 +23,15 @@ export default class View {
     while (this.taskUl.firstChild)
       this.taskUl.removeChild(this.taskUl.firstChild);
 
+    // msg to user if there are no tasks
     if (tasks.length === 0) {
       const p = document.createElement("p");
       p.innerHTML = "Have a task. Add it ...";
+      p.setAttribute("class", "nomsg-paragraph ");
       this.taskUl.append(p);
     }
 
+    // create li insert task data and then insert it
     if (tasks.length > 0) {
       tasks.forEach((task) => {
         const html = `
@@ -39,6 +45,10 @@ export default class View {
         this.taskUl.insertAdjacentHTML("afterbegin", html);
       });
     }
+
+    this.itemCount.innerHTML = `${
+      tasks.length > 0 ? tasks.length + " items left" : 0 + " items"
+    }`;
   }
 
   changeTheme(state) {
@@ -55,10 +65,25 @@ export default class View {
   bindAddTask(handler) {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
-      handler(this.input.value);
+      const input = this.input.value;
       this.input.value = "";
+      if (input !== "") handler(input);
     });
   }
 
-  dispayTask() {}
+  // bindToggleComplete(handler) {
+  //   this.checkmarkBtn.forEach((btn) => {
+  //     btn.addEventListener("click", (event) => {
+  //       handler("data");
+  //     });
+  //   });
+  // }
+
+  bindToggleComplete(handler) {
+    this.taskUl.addEventListener("click", (event) => {
+      if (event.target.classList[1] === "btn--check-mark") {
+        handler(event.target.parentElement.id);
+      }
+    });
+  }
 }
