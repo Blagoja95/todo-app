@@ -1,5 +1,5 @@
 .attribution {
-  padding: 2rem 0;
+  padding: 4rem 0;
   font-size: 1.1rem;
   text-align: center;
   color: #e4e5f1;
@@ -63,7 +63,7 @@ body {
   flex-direction: column;
 }
 
-.filters-desktop {
+.filters--desktop {
   display: none;
 }
 
@@ -204,14 +204,20 @@ form {
 }
 
 .stats {
+  position: relative;
   justify-content: space-around;
   color: #777a92;
-  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .filters {
   gap: 2rem;
   border-radius: 0.5rem;
+}
+
+.filters--mobile {
+  position: absolute;
+  transform: translateY(100%);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .light {
@@ -221,7 +227,8 @@ form {
   background-size: contain;
 }
 
-.light .main {
+.light .main,
+.light .filters--mobile {
   box-shadow: 0 2rem 1rem rgba(29, 29, 29, 0.1);
 }
 
@@ -284,13 +291,13 @@ form {
     margin-top: 10rem;
   }
 
-  .filters-desktop {
+  .filters--desktop {
     display: flex;
     width: auto;
     margin: 0;
   }
 
-  .filters-mobile {
+  .filters--mobile {
     display: none;
   }
 }

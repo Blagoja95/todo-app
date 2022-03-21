@@ -7,6 +7,7 @@ export default class View {
     // event targer elements
     this.stats = document.querySelector(".stats");
     this.taskUl = document.querySelector(".tasks");
+    this.filterMobile = document.querySelector(".filters-mobile");
 
     this.itemCount = document.querySelector(".stat__item-count");
     this.themeBtn = document.querySelector(".btn--theme-switch");
@@ -27,7 +28,7 @@ export default class View {
       this.taskUl.removeChild(this.taskUl.firstChild);
 
     // msg to user if there are no tasks
-    if (tasks.length === 0) {
+    if (tasks.length === 0 && !this.taskUl.firstChild) {
       setTimeout(() => {
         const p = document.createElement("p");
         p.setAttribute("class", "nomsg-paragraph ");
