@@ -21,7 +21,6 @@ Thanks for checking out this front-end coding challenge.
   - [Continued development](#continued-development)
   - [Demo gif](#demo-gif)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## The challenge
 
