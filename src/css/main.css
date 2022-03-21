@@ -244,7 +244,7 @@ form {
 }
 
 .light .task {
-  border-color: #e4e5f1;
+  border-color: #e4e5f1 !important;
 }
 
 .light .input-field {
