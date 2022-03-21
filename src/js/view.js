@@ -28,10 +28,12 @@ export default class View {
 
     // msg to user if there are no tasks
     if (tasks.length === 0) {
-      const p = document.createElement("p");
-      p.innerHTML = "Have a task. Add it ...";
-      p.setAttribute("class", "nomsg-paragraph ");
-      this.taskUl.append(p);
+      setTimeout(() => {
+        const p = document.createElement("p");
+        p.setAttribute("class", "nomsg-paragraph ");
+        p.innerHTML = "Have a task. Add it ...";
+        this.taskUl.append(p);
+      }, 2000);
     }
 
     // create li insert task data and then insert it
