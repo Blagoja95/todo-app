@@ -28,12 +28,12 @@ export default class View {
       this.taskUl.removeChild(this.taskUl.firstChild);
 
     // msg to user if there are no tasks
-    if (tasks.length === 0 && !this.taskUl.firstChild) {
+    if (tasks.length === 0) {
       setTimeout(() => {
         const p = document.createElement("p");
         p.setAttribute("class", "nomsg-paragraph ");
         p.innerHTML = "Have a task. Add it ...";
-        this.taskUl.append(p);
+        if (!this.taskUl.firstChild) this.taskUl.append(p);
       }, 2000);
     }
 
