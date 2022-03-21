@@ -2,6 +2,7 @@ export default class Model {
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     this.theme = JSON.parse(localStorage.getItem("theme")) || false;
+    this.tempTaskList;
   }
 
   themeChange() {
@@ -33,6 +34,7 @@ export default class Model {
 
   deleteTask(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+
     this.addToLocalStorage(this.tasks);
   }
 
@@ -48,6 +50,38 @@ export default class Model {
   addToLocalStorage(tasks) {
     this.controleTask(this.tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  filterTasks(data) {
+    // debugger;
+    switch (data) {
+      case "all":
+        this.tasks = JSON.parse(localStorage.getItem("tasks"));
+        this.controleTask(this.tasks);
+        break;
+
+      case "active":
+        this.tasks = JSON.parse(localStorage.getItem("tasks"));
+        this.addTaskByFilter(false);
+        this.controleTask(this.tasks);
+        break;
+
+      case "completed":
+        this.addTaskByFilter(true);
+        this.controleTask(this.tasks);
+        break;
+
+      case "clearcompleted":
+        this.tasks = JSON.parse(localStorage.getItem("tasks"));
+        this.tasks = this.tasks.filter((task) => task.complete === false);
+        this.addToLocalStorage(this.tasks);
+        break;
+    }
+  }
+
+  addTaskByFilter(state) {
+    this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    this.tasks = this.tasks?.filter((task) => task.complete === state);
   }
 
   // callbacks

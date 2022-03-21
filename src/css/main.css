@@ -194,6 +194,7 @@ form {
 
 .nomsg-paragraph {
   text-align: center;
+  font-weight: 700;
   padding: 1rem;
   color: white;
 }
@@ -243,8 +244,9 @@ form {
   background-image: url("../images/icon-moon.svg");
 }
 
-.light .attribution {
-  color: #4d5066;
+.light .attribution,
+.light .nomsg-paragraph {
+  color: #161722;
 }
 
 @media screen and (max-width: 370px) {
@@ -296,13 +298,6 @@ form {
 
   .main {
     margin-top: 15rem;
-  }
-
-  .btn--delete {
-    display: none;
-  }
-  .btn--delete:hover {
-    display: block;
   }
 }
 

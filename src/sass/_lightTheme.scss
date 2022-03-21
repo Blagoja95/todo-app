@@ -32,6 +32,7 @@
   background-image: url("../images/icon-moon.svg");
 }
 
-.light .attribution {
-  color: $Very-Dark-Grayish-Blue;
+.light .attribution,
+.light .nomsg-paragraph {
+  color: $Very-Dark-Blue;
 }

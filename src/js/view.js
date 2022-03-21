@@ -3,9 +3,14 @@ export default class View {
     this.body = document.querySelector("body");
     this.form = document.querySelector("form");
     this.input = document.querySelector(".input-field");
+
+    // event targer elements
+    this.stats = document.querySelector(".stats");
     this.taskUl = document.querySelector(".tasks");
+
     this.itemCount = document.querySelector(".stat__item-count");
     this.themeBtn = document.querySelector(".btn--theme-switch");
+    this.filterBtns = document.querySelectorAll(".btn--filter");
   }
 
   get _taskInner() {
@@ -81,6 +86,16 @@ export default class View {
       if (event.target.classList[1] === "btn--check-mark") {
         handler(event.target.parentElement.id);
       }
+    });
+  }
+
+  bindFilterTasks(handler) {
+    this.stats.addEventListener("click", (event) => {
+      const input = event.target.innerHTML.toLowerCase().replace(" ", "");
+      this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
+      if (input !== "clearcompleted") event.target.classList.add("btn--active");
+      else this.filterBtns[0].classList.add("btn--active");
+      handler(input);
     });
   }
 }

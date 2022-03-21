@@ -16,6 +16,7 @@ class Controller {
     view.bindAddTask(this.handleAddTask.bind(this));
     view.bindToggleComplete(this.handleToggle.bind(this));
     view.bindDeleteTask(this.handleDeleteTask.bind(this));
+    view.bindFilterTasks(this.handleFilters.bind(this));
 
     // callbacks
     model.bindThemeChangeModel(this.controleTheme.bind(this));
@@ -30,8 +31,6 @@ class Controller {
     this.view.renderTask(task);
   }
 
-  controlToggle() {}
-
   handleThemeChange() {
     this.model.themeChange();
   }
@@ -45,8 +44,11 @@ class Controller {
   }
 
   handleDeleteTask(input) {
-    console.log(input);
     this.model.deleteTask(+input);
+  }
+
+  handleFilters(input) {
+    this.model.filterTasks(input);
   }
 }
 
