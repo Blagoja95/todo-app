@@ -56,7 +56,7 @@ Your users should be able to:
 - Mobile-first workflow
 
 **First step was planing:**
-![General plane of html file](./readmeAssets/Screenshot%202022-03-21%20at%2014-44-16%20Figma.png)
+![General layout plan of html](./readmeAssets/Screenshot%202022-03-21%20at%2014-44-16%20Figma.png)
 
 - Made a main element with 4 sections: title, input, to-do and manage sections;
 - The footer is just one modified attribute that you get with every starter file.
@@ -72,7 +72,10 @@ Your users should be able to:
 
 **Next and hardest step was JS:**
 
-- First, I started whit flowchart that will help me visualise general work of the app [link and image of flowchart]
+- First, I started whit flowchart that will help me visualise general work of the app [Figma flowchart](./readmeAssets/Screenshot%202022-03-21%20at%2019-14-06%20Figma.png)
+
+[Figma file online version](https://www.figma.com/file/2FnGzcn2D6cnNJan2Bco5v/Todo-app-flowchart)
+
 - I made in js file MVC type structure of an app, where M witch stand for Model will do all logic and work with a data, V for View will register all user actions and represent visually given data to a user.
   The middle man here is C, Controller who handles View and get/send data to the Model
 
