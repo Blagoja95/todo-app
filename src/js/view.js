@@ -50,7 +50,9 @@ export default class View {
     }
 
     this.itemCount.innerHTML = `${
-      tasks.length > 0 ? tasks.length + " items left" : 0 + " items"
+      tasks.length > 0
+        ? tasks.length + ` item${tasks.length === 1 ? `` : `s`} left`
+        : 0 + " items"
     }`;
   }
 
