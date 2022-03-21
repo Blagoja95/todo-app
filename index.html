@@ -19,7 +19,7 @@
     />
 
     <link rel="stylesheet" href="src/css/main.css" />
-    <script defer type="module" src="src/js/controller.js"></script>
+    <script type="module" src="src/js/controller.js"></script>
     <title>Todo app</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -28,15 +28,18 @@
     <main class="main">
       <section class="section title-section">
         <h1 class="main-title">Todo</h1>
-        <button class="btn btn--theme-switch"></button>
+        <button
+          class="btn btn--theme-switch"
+          aria-label="theme swithc"
+        ></button>
       </section>
       <section class="section input-section">
-        <form action="">
+        <form action="#">
           <div class="input-container">
             <span class="btn btn--span"></span>
             <input
               class="input-field"
-              type="input"
+              type="text"
               placeholder="Create a new todo..."
             />
           </div>
