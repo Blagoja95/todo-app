@@ -54,7 +54,7 @@ Your users should be able to:
 ![General layout plan of html](./readmeAssets/Screenshot%202022-03-21%20at%2014-44-16%20Figma.png)
 
 - Made a main element with 4 sections: title, input, to-do and manage sections;
-- The footer is just one modified attribute that you get with every starter file.
+- The footer is just one modified attribution that you get with every starter file.
 - All elements got classes by BEM methodology, where all buttons have common class `btn` and each iteration of button element has a modifier class like `btn--active`.
 
 **Second step was styling:**
@@ -67,7 +67,7 @@ Your users should be able to:
 
 **Next and hardest step was JS:**
 
-- First, I started whit flowchart that will help me visualise general work of the app [Figma flowchart](./readmeAssets/Screenshot%202022-03-21%20at%2019-14-06%20Figma.png)
+- First, I started with flowchart that will help me visualise general work of the app [Figma flowchart](./readmeAssets/Screenshot%202022-03-21%20at%2019-14-06%20Figma.png)
 
 - [Figma file online version](https://www.figma.com/file/2FnGzcn2D6cnNJan2Bco5v/Todo-app-flowchart)
 
@@ -76,7 +76,7 @@ Your users should be able to:
 
 **Model <==> Controler <==> View**
 
-- The best way for me is to start whit View where I'll bind event listeners that will wait for user action, when something happened, the View will notify Controler about the event and send user input.
+- The best way for me is to start with View where I'll bind event listeners that will wait for user action, when something happened, the View will notify Controler about the event and send user input.
 - Controller will send input to the Model who will work with data, save a change and then will call back Controller, notify him that something new happened with the data.
 - Controller will then call View's method that render data or notify user with responses to the user action.
 
@@ -90,7 +90,7 @@ Your users should be able to:
 
 `handleAddTask(input) { this.model.addTask(input); }`
 
-- Model will create a task object whit his dynamically created, id number, task content is sent from the controller, and all tasks are created uncompleted.
+- Model will create a task object with his dynamically created, id number, task content is sent from the controller, and all tasks are created uncompleted.
 - Model will then push that newly created object to the tasks array that is in this app main task messenger.
 
 `addTask(taskContent) { const task = { id: this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id + 1 : 1, content: taskContent, complete: false, }; `
