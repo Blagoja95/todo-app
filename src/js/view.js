@@ -52,6 +52,7 @@ export default class View {
       });
     }
 
+    // task left count
     this.itemCount.innerHTML = `${
       tasks.length > 0
         ? tasks.length + ` item${tasks.length === 1 ? `` : `s`} left`
@@ -73,9 +74,12 @@ export default class View {
   bindAddTask(handler) {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
+      this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
+      this.filterBtns[0].classList.add("btn--active");
       const input = this.input.value;
       this.input.value = "";
       if (input !== "") handler(input);
+      // reset filter btns
     });
   }
 

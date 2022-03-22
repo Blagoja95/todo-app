@@ -2,6 +2,7 @@ export default class Model {
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     this.theme = JSON.parse(localStorage.getItem("theme")) || false;
+    this.tasksTemp = [];
     this.tempTaskList;
   }
 
@@ -56,19 +57,18 @@ export default class Model {
     // debugger;
     switch (data) {
       case "all":
-        this.tasks = JSON.parse(localStorage.getItem("tasks"));
-        this.controleTask(this.tasks);
+        this.tasksTemp = JSON.parse(localStorage.getItem("tasks")) || [];
+        this.controleTask(this.tasksTemp);
         break;
 
       case "active":
-        this.tasks = JSON.parse(localStorage.getItem("tasks"));
         this.addTaskByFilter(false);
-        this.controleTask(this.tasks);
+        this.controleTask(this.tasksTemp);
         break;
 
       case "completed":
         this.addTaskByFilter(true);
-        this.controleTask(this.tasks);
+        this.controleTask(this.tasksTemp);
         break;
 
       case "clearcompleted":
@@ -80,8 +80,8 @@ export default class Model {
   }
 
   addTaskByFilter(state) {
-    this.tasks = JSON.parse(localStorage.getItem("tasks"));
-    this.tasks = this.tasks?.filter((task) => task.complete === state);
+    this.tasksTemp = JSON.parse(localStorage.getItem("tasks")) || [];
+    this.tasksTemp = this.tasks?.filter((task) => task.complete === state);
   }
 
   // callbacks
