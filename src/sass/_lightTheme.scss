@@ -17,8 +17,9 @@
   background-color: $White;
 }
 
-.light .filters:hover {
-  color: $Dark-Grayish-Blue;
+.light .btn--filter:hover,
+.light .btn--clear:hover {
+  color: $Very-Dark-Grayish-Blue;
 }
 
 .light .task {

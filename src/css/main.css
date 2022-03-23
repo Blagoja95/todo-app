@@ -239,8 +239,9 @@ form {
   background-color: white;
 }
 
-.light .filters:hover {
-  color: #777a92;
+.light .btn--filter:hover,
+.light .btn--clear:hover {
+  color: #4d5066;
 }
 
 .light .task {
