@@ -117,6 +117,6 @@ Your users should be able to:
 
 ## Author
 
-- Website - [Boris Blagojevic](https://github.com/Blagoja95)
+- Website - [Boris Blagojevic](https://www.borisblagojevic.me)
 - Frontend Mentor - [@Blagoja95](https://www.frontendmentor.io/profile/Blagoja95)
 - Linkedin - [boris-blagojevic](https://www.linkedin.com/in/boris-blagojevic/)
