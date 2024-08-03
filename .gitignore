@@ -22,3 +22,4 @@ README-template.md
 /dist
 /node_modules
 .parcel-cache
+.idea

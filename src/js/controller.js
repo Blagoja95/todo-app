@@ -1,5 +1,6 @@
 import View from "./view.js";
 import Model from "./model.js";
+import "../sass/main.scss";
 
 class Controller {
   constructor(model, view) {

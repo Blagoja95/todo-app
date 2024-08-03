@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="src/images/favicon-32x32.png"
+      href="../src/images/favicon-32x32.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,11 +17,9 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="src/css/main.css" />
-    <script type="module" src="src/js/controller.js"></script>
+    <script type="module" src="main.js"></script>
     <title>Todo app</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
   <body>
     <main class="main">
@@ -30,7 +27,7 @@
         <h1 class="main-title">Todo</h1>
         <button
           class="btn btn--theme-switch"
-          aria-label="theme swithc"
+          aria-label="theme switch"
         ></button>
       </section>
       <section class="section input-section">
@@ -45,17 +42,12 @@
           </div>
         </form>
       </section>
-      <!-- USER GENERATED CONTENT  -->
+
       <section class="section todo-section">
         <ul class="tasks">
-          <!-- TEMPLATE task -->
-          <!-- <li class="task">
-            <button class="btn btn--check-mark"></button>
-            <p class="task__paragraph">Some Task</p>
-            <button class="btn btn--delete"></button>
-          </li> -->
         </ul>
       </section>
+
       <section class="section manage-section">
         <div class="stats">
           <p class="stat__item-count">5 items left</p>
