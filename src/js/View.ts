@@ -1,4 +1,16 @@
+import Task from "./interface/Task";
+
 export default class View {
+  private body: HTMLBodyElement;
+  private form: HTMLFormElement;
+  private input: HTMLInputElement;
+  private stats: Element;
+  private taskUl: Element;
+  private filterMobile: Element;
+  private itemCount: Element;
+  private themeBtn: Element;
+  private filterBtns: NodeListOf<Element>;
+
   constructor() {
     this.body = document.querySelector("body");
     this.form = document.querySelector("form");
@@ -22,7 +34,7 @@ export default class View {
     this.input.value = "";
   }
 
-  renderTask(tasks) {
+  renderTask(tasks: Task[]) {
     // clear all tasks
     while (this.taskUl.firstChild)
       this.taskUl.removeChild(this.taskUl.firstChild);
@@ -31,20 +43,24 @@ export default class View {
     if (tasks.length === 0) {
       setTimeout(() => {
         const p = document.createElement("p");
+
         p.setAttribute("class", "nomsg-paragraph ");
         p.innerHTML = "Have a task. Add it ...";
-        if (!this.taskUl.firstChild) this.taskUl.append(p);
+
+        if (!this.taskUl.firstChild)
+          this.taskUl.append(p);
       }, 2000);
     }
 
     // create li insert task data and then insert it
     if (tasks.length > 0) {
-      tasks.forEach((task) => {
+      tasks.forEach((task: Task) => {
         const html = `
-        <li class="task ${task.complete ? "completed" : ""}" id=${task.id}>
+        <li class="task ${task.completed ? "completed" : ""}" id=${task.id}>
         <button class="btn btn--check-mark"></button>
-        <p class="task__paragraph">${task.content}</p>
-        <button class="btn btn--delete"></button>
+        
+        <p class="task__paragraph"${task.content}</p>
+        <button class="btn btn--delete"></button> 
         </li>
         `;
 
@@ -60,9 +76,11 @@ export default class View {
     }`;
   }
 
-  changeTheme(state) {
-    if (state) this.body.classList.add("light");
-    else this.body.classList.remove("light");
+  changeTheme(state: boolean) {
+    if (state)
+      this.body.classList.add("light");
+    else
+      this.body.classList.remove("light");
   }
 
   bindThemeChange(handler) {
@@ -77,33 +95,40 @@ export default class View {
       this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
       this.filterBtns[0].classList.add("btn--active");
       const input = this.input.value;
+
       this.input.value = "";
-      if (input !== "") handler(input);
-      // reset filter btns
+
+      if (input !== "")
+        handler(input);
     });
   }
 
   bindDeleteTask(handler) {
-    this.taskUl.addEventListener("click", (event) => {
+    this.taskUl.addEventListener("click", (event:any) => {
       if (event.target.classList[1] === "btn--delete")
-        handler(event.target.parentElement.id);
+        handler(+event.target.parentElement.id);
     });
   }
 
   bindToggleComplete(handler) {
-    this.taskUl.addEventListener("click", (event) => {
+    this.taskUl.addEventListener("click", (event: any) => {
       if (event.target.classList[1] === "btn--check-mark") {
-        handler(event.target.parentElement.id);
+        handler(+event.target.parentElement.id);
       }
     });
   }
 
   bindFilterTasks(handler) {
-    this.stats.addEventListener("click", (event) => {
-      const input = event.target.innerHTML.toLowerCase().replace(" ", "");
+    this.stats.addEventListener("click", (event: any) => {
+      const input: string = event.target.innerHTML.toLowerCase().replace(" ", "");
+
       this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
-      if (input !== "clearcompleted") event.target.classList.add("btn--active");
-      else this.filterBtns[0].classList.add("btn--active");
+
+      if (input !== "clearcompleted")
+        event.target.classList.add("btn--active");
+      else
+        this.filterBtns[0].classList.add("btn--active");
+
       handler(input);
     });
   }

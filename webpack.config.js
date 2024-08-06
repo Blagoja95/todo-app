@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/js/controller.js',
+    entry: './src/js/Controller.ts',
     devServer: {
         static: path.resolve(__dirname, './public'),
         port: 3333,
@@ -25,7 +25,15 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            }
         ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         new MiniCssExtractPlugin({

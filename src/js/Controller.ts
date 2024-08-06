@@ -1,9 +1,10 @@
-import View from "./view.js";
-import Model from "./model.js";
+import View from "./View";
+import Model from "./Model";
 import "../sass/main.scss";
 
-class Controller {
-  constructor(model, view) {
+class Controller{
+
+  constructor(private model: Model, private view: View) {
     this.model = model;
     this.view = view;
 
@@ -24,7 +25,7 @@ class Controller {
     model.bindAddTaskModel(this.controlTask.bind(this));
   }
 
-  controleTheme(state) {
+  controleTheme(state: boolean): void {
     this.view.changeTheme(state);
   }
 
@@ -36,21 +37,21 @@ class Controller {
     this.model.themeChange();
   }
 
-  handleAddTask(input) {
+  handleAddTask(input: string) {
     this.model.addTask(input);
   }
 
-  handleToggle(input) {
-    this.model.toggleTask(+input);
+  handleToggle(input: number) {
+    this.model.toggleTask(input);
   }
 
   handleDeleteTask(input) {
     this.model.deleteTask(+input);
   }
 
-  handleFilters(input) {
+  handleFilters(input: string) {
     this.model.filterTasks(input);
   }
 }
 
-const controller = new Controller(new Model(), new View());
+const controller: Controller = new Controller(new Model(), new View());

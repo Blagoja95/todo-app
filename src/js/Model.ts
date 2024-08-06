@@ -1,61 +1,71 @@
+import Task from "./interface/Task";
+
 export default class Model {
+  public tasks: Task[];
+  public theme: boolean;
+  private tasksTemp: Task[];
+  private controleTheme: any;
+  private controleTask: any;
+
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     this.theme = JSON.parse(localStorage.getItem("theme")) || false;
-    this.tasksTemp = [];
-    this.tempTaskList;
+    this.tasksTemp= [];
   }
 
   themeChange() {
-    localStorage.setItem("theme", !this.theme);
+    this.theme = !this.theme;
+
+    localStorage.setItem("theme", String(this.theme));
+
     this.controleTheme(this.theme);
-    window.location.reload();
   }
 
-  addTask(taskContent) {
-    const task = {
+  addTask(taskContent: string) {
+    const task : Task = {
       id: this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id + 1 : 1,
       content: taskContent,
-      complete: false,
+      completed: false,
     };
 
     this.tasks.push(task);
     this.addToLocalStorage(this.tasks);
   }
 
-  editTask(id, updatedContent) {
+  editTask(id: number, updatedContent: string) {
     this.tasks = this.tasks.map((task) =>
       task.id === id
-        ? { id: task.id, content: updatedContent, complete: task.complete }
+        ? { id: task.id, content: updatedContent, completed: task.completed }
         : task
     );
 
     this.controleTask(this.tasks);
   }
 
-  deleteTask(id) {
+  deleteTask(id: number) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
 
     this.addToLocalStorage(this.tasks);
   }
 
-  toggleTask(id) {
+  toggleTask(id: number) {
     this.tasks = this.tasks.map((task) =>
       task.id === id
-        ? { id: task.id, content: task.content, complete: !task.complete }
+        ? { ...task, completed: !task.completed }
         : task
     );
+
     this.addToLocalStorage(this.tasks);
   }
 
-  addToLocalStorage(tasks) {
+  addToLocalStorage(tasks: Task[]) {
     this.controleTask(this.tasks);
+
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
-  filterTasks(data) {
-    // debugger;
-    switch (data) {
+  filterTasks(mode: string) {
+    switch (mode) {
       case "all":
         this.tasksTemp = JSON.parse(localStorage.getItem("tasks")) || [];
         this.controleTask(this.tasksTemp);
@@ -73,15 +83,15 @@ export default class Model {
 
       case "clearcompleted":
         this.tasks = JSON.parse(localStorage.getItem("tasks"));
-        this.tasks = this.tasks.filter((task) => task.complete === false);
+        this.tasks = this.tasks.filter((task) => task.completed === false);
         this.addToLocalStorage(this.tasks);
         break;
     }
   }
 
-  addTaskByFilter(state) {
+  addTaskByFilter(state: boolean) {
     this.tasksTemp = JSON.parse(localStorage.getItem("tasks")) || [];
-    this.tasksTemp = this.tasks?.filter((task) => task.complete === state);
+    this.tasksTemp = this.tasks?.filter((task) => task.completed === state);
   }
 
   // callbacks
