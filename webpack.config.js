@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     entry: './src/js/Controller.ts',
     devServer: {
-        static: path.resolve(__dirname, './public'),
+        static: path.resolve(__dirname, './dist'),
         port: 3333,
     },
     output: {
@@ -41,6 +41,7 @@ module.exports = {
             chunkFilename: '[id].css',
         }),
         new HtmlWebpackPlugin({
+            favicon: path.resolve(__dirname, './public/favicon.png'),
             template: path.resolve(__dirname, './public/index.html'),
             filename: '../dist/index.html',
         })

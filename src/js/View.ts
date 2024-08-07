@@ -59,7 +59,7 @@ export default class View {
         <li class="task ${task.completed ? "completed" : ""}" id=${task.id}>
         <button class="btn btn--check-mark"></button>
         
-        <p class="task__paragraph"${task.content}</p>
+        <p class="task__paragraph">${task.content}</p>
         <button class="btn btn--delete"></button> 
         </li>
         `;
