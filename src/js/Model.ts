@@ -39,7 +39,7 @@ export default class Model {
         : task
     );
 
-    this.controleTask(this.tasks);
+    this.addToLocalStorage(this.tasks);
   }
 
   deleteTask(id: number) {
@@ -59,9 +59,9 @@ export default class Model {
   }
 
   addToLocalStorage(tasks: Task[]) {
-    this.controleTask(this.tasks);
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    this.controleTask(this.tasks);
   }
 
   filterTasks(mode: string) {

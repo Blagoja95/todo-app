@@ -36,19 +36,20 @@ Your users should be able to:
 - Filter by all/active/complete todos ✅
 - Clear all completed todos ✅
 - Toggle light and dark mode ✅
-- Edit tasks (✖️ todo)
+- Edit tasks ✅
 - **Bonus**: Drag and drop to reorder items on the list (✖️ todo)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
 - SASS
-- JavaScript
+- TS
 - BEM
 - MVC Architecture
 - Mobile-first workflow
+- Webpack
+- custom jekyll gh pages workflow with webpack
 
 **First step was planing:**
 ![General layout plan of html](./readmeAssets/Screenshot%202022-03-21%20at%2014-44-16%20Figma.png)
@@ -65,7 +66,7 @@ Your users should be able to:
 - Provided design files are made for mobile 375px and desktop 1440px, so I used queries and brake points to make the app look good on different viewports.
 - Because I used mobile first workflow when making look of the app, I used min-width in my brakepoints.
 
-**Next and hardest step was JS:**
+**Next and hardest step was ~~JS~~:**
 
 - First, I started with flowchart that will help me visualise general work of the app [Figma flowchart](./readmeAssets/Screenshot%202022-03-21%20at%2019-14-06%20Figma.png)
 
@@ -74,7 +75,7 @@ Your users should be able to:
 - I made in js file MVC type structure of an app, where M witch stand for Model will do all logic and work with a data, V for View will register all user actions and represent visually given data to a user.
   The middle man here is C, Controller who handles View and get/send data to the Model
 
-**Model <==> Controler <==> View**
+**Model <==> Controller <==> View**
 
 - The best way for me is to start with View where I'll bind event listeners that will wait for user action, when something happened, the View will notify Controler about the event and send user input.
 - Controller will send input to the Model who will work with data, save a change and then will call back Controller, notify him that something new happened with the data.

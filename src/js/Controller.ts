@@ -11,16 +11,14 @@ class Controller{
     // init
     this.controleTheme(this.model.theme);
     this.controlTask(this.model.tasks);
-    // localStorage.clear();
 
-    // handlers
     view.bindThemeChange(this.handleThemeChange.bind(this));
     view.bindAddTask(this.handleAddTask.bind(this));
     view.bindToggleComplete(this.handleToggle.bind(this));
     view.bindDeleteTask(this.handleDeleteTask.bind(this));
     view.bindFilterTasks(this.handleFilters.bind(this));
+    view.callCtrl = this.handleEdit.bind(this);
 
-    // callbacks
     model.bindThemeChangeModel(this.controleTheme.bind(this));
     model.bindAddTaskModel(this.controlTask.bind(this));
   }
@@ -51,6 +49,10 @@ class Controller{
 
   handleFilters(input: string) {
     this.model.filterTasks(input);
+  }
+
+  handleEdit(val: string, id: number){
+    this.model.editTask(id, val);
   }
 }
 

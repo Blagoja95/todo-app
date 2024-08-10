@@ -5,11 +5,13 @@ export default class View {
   private form: HTMLFormElement;
   private input: HTMLInputElement;
   private stats: Element;
-  private taskUl: Element;
+  private taskUl: HTMLUListElement;
   private filterMobile: Element;
   private itemCount: Element;
   private themeBtn: Element;
   private filterBtns: NodeListOf<Element>;
+
+  public callCtrl = null;
 
   constructor() {
     this.body = document.querySelector("body");
@@ -26,12 +28,12 @@ export default class View {
     this.filterBtns = document.querySelectorAll(".btn--filter");
   }
 
-  get _taskInner() {
-    return this.input.value;
+  private get _taskInner() : string {
+    return this.input.value.trim();
   }
 
-  _resetInner() {
-    this.input.value = "";
+  private _resetInner() : void{
+    this.input.value = '';
   }
 
   renderTask(tasks: Task[]) {
@@ -52,19 +54,9 @@ export default class View {
       }, 2000);
     }
 
-    // create li insert task data and then insert it
     if (tasks.length > 0) {
       tasks.forEach((task: Task) => {
-        const html = `
-        <li class="task ${task.completed ? "completed" : ""}" id=${task.id}>
-        <button class="btn btn--check-mark"></button>
-        
-        <p class="task__paragraph">${task.content}</p>
-        <button class="btn btn--delete"></button> 
-        </li>
-        `;
-
-        this.taskUl.insertAdjacentHTML("afterbegin", html);
+        this.createTaskNode(task);
       });
     }
 
@@ -74,6 +66,46 @@ export default class View {
         ? tasks.length + ` item${tasks.length === 1 ? `` : `s`} left`
         : 0 + " items"
     }`;
+  }
+
+  createTaskNode (task: Task): void
+  {
+    const lClasses: string[] = ["task"];
+
+    if(task.completed)
+      lClasses.push("completed");
+
+    const li: HTMLElement = document.createElement('li');
+    li.classList.add(...lClasses);
+    li.id = String(task.id);
+
+    const btnChck: HTMLButtonElement =  document.createElement('button');
+    btnChck.classList.add("btn", "btn--check-mark");
+
+    const btnDel: HTMLButtonElement = document.createElement('button');
+    btnDel.classList.add("btn", "btn--delete");
+
+    const p: HTMLParagraphElement = document.createElement('p');
+    p.classList.add("task__paragraph");
+    p.textContent = task.content;
+    p.contentEditable = String(!task.completed);
+
+    p.addEventListener('blur', this.handleEdit.bind(this));
+    p.addEventListener('keydown', (e) => {
+      if(e.code === 'Enter') {
+        this.handleEdit.bind(e, this);
+
+        p.blur();
+      }
+    });
+
+    li.append(btnChck, p, btnDel);
+    this.taskUl.append(li);
+  }
+
+  public handleEdit(e)
+  {
+    this.callCtrl(e.target.innerHTML, +e.target.parentElement.id);
   }
 
   changeTheme(state: boolean) {
@@ -92,14 +124,14 @@ export default class View {
   bindAddTask(handler) {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
+      console.log(this.filterBtns)
       this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
       this.filterBtns[0].classList.add("btn--active");
-      const input = this.input.value;
 
-      this.input.value = "";
+      if (this._taskInner.length > 1)
+        handler(this._taskInner);
 
-      if (input !== "")
-        handler(input);
+      this._resetInner();
     });
   }
 
