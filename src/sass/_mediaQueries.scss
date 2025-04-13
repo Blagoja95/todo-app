@@ -6,6 +6,20 @@
   .btn--clear {
     font-size: 1.2rem;
   }
+
+  .task__paragraph {
+    &:focus {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 425px){
+  .task__paragraph {
+    &:focus {
+      width: 75%;
+    }
+  }
 }
 
 @media screen and (min-width: 540px) {

@@ -26,6 +26,10 @@
   &:hover {
     cursor: pointer;
   }
+
+  &:focus {
+    width: 80%;
+  }
 }
 
 .completed .task__paragraph {

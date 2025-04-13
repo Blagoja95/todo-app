@@ -124,11 +124,12 @@ export default class View {
   bindAddTask(handler) {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
-      console.log(this.filterBtns)
+
+      // reset filter buttons to default all task button
       this.filterBtns.forEach((btn) => btn.classList.remove("btn--active"));
       this.filterBtns[0].classList.add("btn--active");
 
-      if (this._taskInner.length > 1)
+      if (this._taskInner.length >= 1)
         handler(this._taskInner);
 
       this._resetInner();
